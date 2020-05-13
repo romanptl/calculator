@@ -32,14 +32,12 @@
     oldNum = theNum;
     theNum = "";
     operator = this.getAttribute("data-ops");
-
     equals.setAttribute("data-result", "");
   };
 
   var displayNum = function () {
     oldNum = parseFloat(oldNum);
     theNum = parseFloat(theNum);
-
     switch (operator) {
       case "plus":
         resultNum = oldNum + theNum;
@@ -59,16 +57,6 @@
 
       default:
         resultNum = theNum;
-    }
-
-    if (!isFinite(resultNum)) {
-      if (isNaN(resultNum)) {
-        resultNum = "You broke it!";
-      } else {
-        resultNum = "Look at what you've done";
-        el("#calculator").classList.add("broken");
-        el("#reset").classList.add("show");
-      }
     }
 
     viewer.innerHTML = resultNum;
